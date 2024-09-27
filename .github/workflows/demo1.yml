@@ -1,9 +1,10 @@
 name: Events Demo 1
 # on: [push, workflow_dispatch]
+# comment 1
 on: 
   pull_request:
     types: 
-      - open
+      - opened
   workflow_dispatch:
 jobs:
   deploy:
