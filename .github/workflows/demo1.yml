@@ -1,11 +1,16 @@
 name: Events Demo 1
 # on: [push, workflow_dispatch]
-# comment 1
 on: 
   pull_request:
-    types: 
+    types:   # activity types
       - opened
+      - closed
   workflow_dispatch:
+  push:
+    branches: # event filter
+      - master
+      - 'dev-*'  # * any chars
+      - 'feat/**' # ** means there maybe more slashes afterwards, e.g. feat/xxx/yyy/zzz
 jobs:
   deploy:
     runs-on: ubuntu-latest
