@@ -6,6 +6,11 @@ on:
       - opened
       - closed
   workflow_dispatch:
+  push:
+    branches: # event filter
+      - master
+      - 'dev-*'  # * any chars
+      - 'feat/**' # ** means there maybe more slashes afterwards, e.g. feat/xxx/yyy/zzz
 jobs:
   deploy:
     runs-on: ubuntu-latest
